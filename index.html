@@ -1095,87 +1095,65 @@ included on your website or app
 		</script>
 		<script>
 		var cArr=["p3","p2","p1"];
-var index=0;
-$(".next").click(
-	function(){
-	nextimg();
-	}
-)
-$(".prev").click(
-	function(){
-	previmg();
-	}
-)
-//previous image 
-function previmg(){
-	cArr.unshift(cArr[2]);
-	cArr.pop();
-	//current index i, starting from 0
-	//e is current element
-	//each loop, current element remove all classes and add class of current i.
-	$("li").each(function(i,e){
-		$(e).removeClass().addClass(cArr[i]);
-		$(".p2").children().attr("controls","controls")
-		$(".p1").children().removeAttr('controls')
-		$(".p3").children().removeAttr('controls')
-	})
-	index--;
-	if (index<0) {
-		index=3;
-	}
-	show();
-}
+		var index=0;
+		$(".next").click(
+			function(){
+			nextimg();
+			}
+		)
+		$(".prev").click(
+			function(){
+			previmg();
+			}
+		)
+		//previous image 
+		function previmg(){
+			cArr.unshift(cArr[2]);
+			cArr.pop();
+			//current index i, starting from 0
+			//e is current element
+			//each loop, current element remove all classes and add class of current i.
+			$("li").each(function(i,e){
+				$(e).removeClass().addClass(cArr[i]);
+				$(".p2").children().attr("controls","controls")
+				$(".p1").children().removeAttr('controls')
+				$(".p3").children().removeAttr('controls')
+			})
+			index--;
+			if (index<0) {
+				index=3;
+			}
+			show();
+		}
 
-//next image
-function nextimg(){
-	cArr.push(cArr[0]);
-	cArr.shift();
-	$("li").each(function(i,e){
-		$(e).removeClass().addClass(cArr[i]);
-		$(".p2").children().attr("controls","controls")
-		$(".p1").children().removeAttr('controls')
-		$(".p3").children().removeAttr('controls')
-	})
-	index++;
-	if (index>2) {
-		index=0;
-	}
-	show();
-}
+		//next image
+		function nextimg(){
+			cArr.push(cArr[0]);
+			cArr.shift();
+			$("li").each(function(i,e){
+				$(e).removeClass().addClass(cArr[i]);
+				$(".p2").children().attr("controls","controls")
+				$(".p1").children().removeAttr('controls')
+				$(".p3").children().removeAttr('controls')
+			})
+			index++;
+			if (index>2) {
+				index=0;
+			}
+			show();
+		}
 
-//triger func of previous image by clicking p2
-$(document).on("click",".p2",function(){
-	previmg();
-	return false;//return false, disable tag a.
-});
+		//triger func of previous image by clicking p2
+		$(document).on("click",".p2",function(){
+			previmg();
+			return false;//return false, disable tag a.
+		});
 
-//triger func of next image by clicking p4.
-$(document).on("click",".p4",function(){
-	nextimg();
-	return false;
-});
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-93086638-1', {
-	'cookieDomain': 'none'
-  });
-  ga('send', 'pageview');
-		</script>
-		<script type="application/ld+json">
-			{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "url": "https://machinebox.io/",
-  "logo": "https://machinebox.io/assets/shared/static/img/machineboxlogo.svg",
-  "contactPoint": [{
-	"@type": "ContactPoint",
-	"email": "hello@machinebox.io",
-	"contactType": "Customer support",
-	"url": "https://machinebox.io/contact"
-  }]
-}
+		//triger func of next image by clicking p4.
+		$(document).on("click",".p4",function(){
+			nextimg();
+			return false;
+		});
 		</script>
 	</body>
 </html>
